@@ -384,3 +384,42 @@ npm run test:api   # runs the real API code against SQLite, in both D1 and R2 ph
 - **Saved looks now show their pictures.** The outfit builder saved each piece as an object, but the home page's "Saved looks" treated them as plain IDs and never matched anything. Pieces later deleted from the wardrobe now show as labelled placeholders.
 - **Logging out of the Workshop now takes you to the login page.** Before, it left you on the protected page.
 - **Removed Hostinger editor files:** the visual editor, preview banner and e-commerce tracking plugins, and the PocketBase dev plugin.
+
+
+## License 
+
+
+
+# MIT-Style Non-Commercial License
+
+Copyright (c) 2026/11/06 Deividas Malaska
+
+## 1. Permission
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify, merge, publish, and distribute the Software for **non-commercial purposes only**, subject to the following conditions.
+
+## 2. Non-Commercial Use
+
+The Software may be used freely for personal, educational, academic, and non-commercial research purposes.
+
+Any commercial use of the Software, including but not limited to selling, licensing, incorporating it into commercial products or services, or using it to generate revenue or obtain commercial advantage, is strictly prohibited without prior written authorization from the copyright holder.
+
+## 3. Commercial Licensing
+
+Commercial use may be permitted under a separate written agreement with the copyright holder.
+
+To request commercial authorization, contact:
+
+**[Your Email Address]**
+
+No commercial rights are granted unless explicitly authorized in writing.
+
+## 4. Attribution
+
+The above copyright notice and this license must be included in all copies or substantial portions of the Software, including modified or redistributed versions.
+
+## 5. Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
