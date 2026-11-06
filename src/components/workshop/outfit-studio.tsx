@@ -16,7 +16,7 @@ import { api, ApiError, onGarmentsChange, type Garment, type Placement } from '@
 import { prepareImage, uploadName } from '@/lib/image-resize';
 import { CutoutPanel, useCutout } from './cutout-panel';
 import { defaultPlace, DollStage, fitToZone, type LayerMove, type StageItem } from './doll-stage';
-import { DollFigure, HAIR_COLORS, EYE_COLORS, SKIN_TONES } from './paper-avatar';
+import { DollFigure } from './paper-avatar';
 
 const CATEGORIES = ['head', 'torso', 'legs', 'feet', 'accessory'] as const;
 type Category = (typeof CATEGORIES)[number];
@@ -37,10 +37,6 @@ const COLOR_HEX: Record<string, string> = {
 	blue: '#3a6fd8', purple: '#8a4fd0', brown: '#7a4a2a', beige: '#d8c4a0',
 	silver: '#c8c8d0', gold: '#d4af37', multi: 'linear-gradient(135deg,#e547a2,#a765cf,#3a6fd8)',
 };
-
-const HAIR_KEYS = Object.keys(HAIR_COLORS);
-const EYE_KEYS = Object.keys(EYE_COLORS);
-const SKIN_KEYS = Object.keys(SKIN_TONES);
 
 /** Accessories can stack; every other zone holds one piece at a time. */
 const MAX_ACCESSORIES = 4;
@@ -82,36 +78,6 @@ function FilterRow({
 				))}
 			</div>
 		</>
-	);
-}
-
-function Swatch({
-	color,
-	active,
-	onClick,
-	label,
-}: {
-	color: string;
-	active: boolean;
-	onClick: () => void;
-	label: string;
-}) {
-	return (
-		<button
-			type="button"
-			onClick={onClick}
-			aria-label={label}
-			aria-pressed={active}
-			title={label}
-			className={`h-9 w-9 border-2 border-black transition-transform hover:-translate-y-1 ${
-				active ? 'shadow-[3px_3px_0_#e547a2]' : 'shadow-[2px_2px_0_#17121b]'
-			}`}
-			style={{ background: color }}
-		>
-			{active && (
-				<Check size={16} className="mx-auto text-white drop-shadow-[0_1px_0_#17121b]" />
-			)}
-		</button>
 	);
 }
 
@@ -574,79 +540,6 @@ export function OutfitStudio() {
 											)}
 										</div>
 									)}
-									{figure === 'photo' && (
-										<p className="mt-3 text-[11px] font-bold uppercase tracking-wider text-[#7a617d]">
-											The options below style the collage figure.
-										</p>
-									)}
-								</div>
-
-								<div>
-									<h3 className="mb-3 flex items-center gap-2 text-xs font-black uppercase tracking-widest">
-										<User size={16} /> Body
-									</h3>
-									<div className="flex gap-3">
-										{(['female', 'male'] as const).map((value) => (
-											<button
-												key={value}
-												type="button"
-												onClick={() => setBodyType(value)}
-												aria-pressed={bodyType === value}
-												className={`border-2 border-black px-6 py-3 text-sm font-black uppercase tracking-wider transition-transform hover:-translate-y-1 ${
-													bodyType === value
-														? 'bg-black text-white shadow-[4px_4px_0_#e547a2]'
-														: 'bg-white shadow-[3px_3px_0_#17121b]'
-												}`}
-											>
-												{value}
-											</button>
-										))}
-									</div>
-								</div>
-
-								<div>
-									<h3 className="mb-3 text-xs font-black uppercase tracking-widest">Hair color</h3>
-									<div className="flex flex-wrap gap-3">
-										{HAIR_KEYS.map((key) => (
-											<Swatch
-												key={key}
-												label={key}
-												color={HAIR_COLORS[key]}
-												active={hairColor === key}
-												onClick={() => setHairColor(key)}
-											/>
-										))}
-									</div>
-								</div>
-
-								<div>
-									<h3 className="mb-3 text-xs font-black uppercase tracking-widest">Eye color</h3>
-									<div className="flex flex-wrap gap-3">
-										{EYE_KEYS.map((key) => (
-											<Swatch
-												key={key}
-												label={key}
-												color={EYE_COLORS[key]}
-												active={eyeColor === key}
-												onClick={() => setEyeColor(key)}
-											/>
-										))}
-									</div>
-								</div>
-
-								<div>
-									<h3 className="mb-3 text-xs font-black uppercase tracking-widest">Skin tone</h3>
-									<div className="flex flex-wrap gap-3">
-										{SKIN_KEYS.map((key) => (
-											<Swatch
-												key={key}
-												label={key}
-												color={SKIN_TONES[key]}
-												active={skinColor === key}
-												onClick={() => setSkinColor(key)}
-											/>
-										))}
-									</div>
 								</div>
 							</div>
 

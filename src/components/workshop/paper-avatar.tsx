@@ -53,7 +53,7 @@ export const AVATAR_PNG =
  * PNG collage avatar (like a magazine cut-out). Hair / eye / skin swatches
  * tint the figure with CSS filters so the saved avatar prefs still matter.
  */
-export function PaperAvatar({ bodyType, hairColor, eyeColor, skinColor }: Props) {
+export function PaperAvatar({ hairColor, eyeColor, skinColor }: Props) {
 	const hair = HAIR_COLORS[hairColor] ?? HAIR_COLORS.brown;
 	const eye = EYE_COLORS[eyeColor] ?? EYE_COLORS.brown;
 	const skin = SKIN_TONES[skinColor] ?? SKIN_TONES.fair;
@@ -81,7 +81,7 @@ export function PaperAvatar({ bodyType, hairColor, eyeColor, skinColor }: Props)
 		<div
 			className="relative h-full w-full"
 			role="img"
-			aria-label={`Collage ${bodyType} avatar with ${hairColor} hair, ${eyeColor} eyes and ${skinColor} skin`}
+			aria-label={`Collage avatar with ${hairColor} hair, ${eyeColor} eyes and ${skinColor} skin`}
 		>
 			{/* torn-paper shadow */}
 			<div
