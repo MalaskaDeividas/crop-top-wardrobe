@@ -1,0 +1,37 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "crop-top-wardrobe",
+	"main": "./workers/app.ts",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
+	// Free database. Create it with `npx wrangler d1 create crop-top-wardrobe`
+	// and paste the database_id it prints below.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "crop-top-wardrobe",
+			"database_id": "1fc17289-1345-4461-b514-40b048fd25ae",
+			"migrations_dir": "migrations"
+		}
+	],
+	// Clothing and avatar photos: R2 (10 GB free per month). Create the bucket once with
+	//   npx wrangler r2 bucket create crop-top-wardrobe-images
+	// Photos uploaded before R2 was enabled stay in D1 and keep working.
+	// To go back to D1-only storage, delete this block.
+	"r2_buckets": [
+		{
+			"binding": "IMAGES",
+			"bucket_name": "crop-top-wardrobe-images"
+		},
+		{
+			"bucket_name": "crop-top-wardrobe-images",
+			"binding": "crop_top_wardrobe_images",
+			"remote": true
+		}
+	]
+}
