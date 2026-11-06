@@ -410,7 +410,7 @@ Commercial use may be permitted under a separate written agreement with the copy
 
 To request commercial authorization, contact:
 
-**[Your Email Address]**
+**malaska.q@gmail.com**
 
 No commercial rights are granted unless explicitly authorized in writing.
 
