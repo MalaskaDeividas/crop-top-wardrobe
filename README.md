@@ -148,6 +148,7 @@ Daily D1 limits reset at 00:00 UTC.
 
 ```
 ├── migrations/                 D1 schema (SQL), applied in order
+├── public/                     Static files
 ├── src/                        React Router app
 │   ├── components/
 │   │   ├── home/               Landing page, saved looks, large look viewer

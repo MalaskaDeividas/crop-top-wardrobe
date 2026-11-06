@@ -52,6 +52,13 @@ type WorkerScope = {
 const ctx = self as unknown as WorkerScope;
 const post = (message: CutoutResponse, transfer: Transferable[] = []) => ctx.postMessage(message, transfer);
 
+// Hugging Face answers requests whose Referer is a *.workers.dev address with a
+// 404 page and no CORS headers, so the model downloads fail with "Failed to fetch"
+// once the site is hosted (localhost is fine). This worker only fetches from the
+// model/runtime CDNs, so send every request without a Referer.
+const originalFetch = self.fetch.bind(self);
+self.fetch = (input, init) => originalFetch(input, { ...init, referrerPolicy: 'no-referrer' });
+
 let libPromise: Promise<Lib> | null = null;
 const loadLib = () =>
 	(libPromise ??= import(/* @vite-ignore */ TRANSFORMERS_URL).then((lib: Lib) => {

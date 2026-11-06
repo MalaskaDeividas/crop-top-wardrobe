@@ -47,7 +47,7 @@ export const EYE_COLORS: Record<string, string> = {
  * '/paper-doll.png' so Cloudflare serves it with the rest of the site.
  */
 export const AVATAR_PNG =
-	'https://horizons-cdn.hostinger.com/d8bf3e3d-102f-4f89-9103-5020247821f1/973a39b1e71d925500518d1d476f8b5b.png';
+	'/paper-doll.png';
 
 /**
  * PNG collage avatar (like a magazine cut-out). Hair / eye / skin swatches
